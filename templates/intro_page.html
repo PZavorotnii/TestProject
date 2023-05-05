@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добро пожаловать</title>
+</head>
+<body>
+<img src="{{source}}" align="middle" hspace="500px", width="200px">
+<p>
+    Добро пожаловать в тренажёр, способный подготовить Вас к заданию, по праву считающемуся одним из самых сложных в ЕГЭ
+    по русскому языку - заданию 4.
+</p>
+<p>
+    <h2>Разделы нашего сайта</h2>
+</p>
+<form action="register">
+   <button>Регистрация</button>
+  </form>
+<form action="login">
+   <button>Вход</button>
+  </form>
+<form action="vocabulary">
+   <button>Словарь</button>
+  </form>
+{% if current_user.is_authenticated and current_user.power %}
+    <a href="add_word" class="btn btn-primary">Добавить слово</a>
+{% endif %}
+{% if current_user.is_authenticated and not current_user.power %}
+    <a href="gym" class="btn btn-primary">Тренажёр</a>
+{% endif %}
+{% if current_user.is_authenticated %}
+    <a href="logout" class="btn btn-primary">Выйти</a>
+{% endif %}
+</body>
+</html>

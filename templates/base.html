@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тренажёр</title>
+</head>
+<body>
+<form action="" method="post">
+            {{ tform.hidden_tag() }}
+   <input type="hidden" name="swords" value="{{tform.fwords}}">
+
+<ol>
+    {% for item in words %}
+        <li>{{item}}</li>
+    {% endfor %}
+</ol>
+{{tform.answers(class="form-control", type="select", size="5")}}
+<p>{{ tform.submit(type="submit", class="btn btn-primary") }}</p>
+    <p>{{message}}</p>
+</form>
+</body>
+</html>
